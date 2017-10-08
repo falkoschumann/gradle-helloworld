@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+ext.moduleName = 'de.muspellheim.helloworld'
+
+mainClassName = "$moduleName/de.muspellheim.helloworld.App"
+
+dependencies {
+    compile project(':messageservice')
+    runtime project(':consolemessageservice')
+    testCompile 'junit:junit:4.12'
+}
+
+run {
+    inputs.property('moduleName', moduleName)
+    doFirst {
+        jvmArgs = [
+                '--module-path', classpath.asPath,
+                '--module', mainClassName
+        ]
+        classpath = files()
+    }
+}

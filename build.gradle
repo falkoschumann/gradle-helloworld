@@ -1,0 +1,20 @@
+subprojects {
+    afterEvaluate {
+        sourceCompatibility = 1.9
+        compileJava.options.encoding = 'UTF-8'
+
+        repositories {
+            mavenCentral()
+        }
+
+        compileJava {
+            inputs.property('moduleName', moduleName)
+            doFirst {
+                options.compilerArgs = [
+                        '--module-path', classpath.asPath
+                ]
+                classpath = files()
+            }
+        }
+    }
+}

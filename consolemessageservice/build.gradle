@@ -1,0 +1,8 @@
+apply plugin: 'java-library'
+
+dependencies {
+    api project(':messageservice')
+    testCompile 'junit:junit:4.12'
+}
+
+ext.moduleName = 'de.muspellheim.consolemessageservice'

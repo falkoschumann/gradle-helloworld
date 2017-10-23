@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
 
 ext.moduleName = 'de.muspellheim.messageservice'
